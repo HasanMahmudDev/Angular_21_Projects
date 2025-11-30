@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-3">
+        courseName=> {{courseName()}}
+    </div>
+    <div class="col-2">
+        {{rollNo()}}
+    </div>
+    <div class="col-2">
+        {{student().city}}
+        <br>
+        {{student().name}}
+    </div>
+    <div class="col-2">
+        {{cityList()}}
+    </div>
+    <div class="col-2">
+        {{courseDuration()}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <button (click)="changeCourse()">Change Course Name</button>
+    </div>
+</div>

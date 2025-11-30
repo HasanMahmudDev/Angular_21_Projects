@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-3">
+        <input type="checkbox" [(ngModel)]="isOfferCodeAvl">Do you have Offer code
+        <br>
+    </div>
+    @if(isOfferCodeAvl==true){
+    <div class="col-3">
+        <input type="text" class="form-control" placeholder="Enter offer code">
+    </div>
+    }
+</div>
+<hr>
+<div class="row">
+    <div class="col-3">
+        @if(isSuccessDivVisible()==true){
+        <div class="bg-success p-3">
+            Success Div
+        </div>
+        }@else {
+        <div class="bg-danger p-3">
+            Error Div
+        </div>
+        }
+
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" (click)="toggleDviVisility()">Toggle</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-3">
+        <input type="text" placeholder="%" class="form-control" [(ngModel)]="studentTotalMarks" 
+        min="0" max="100"  (ngModelChange)="onMarksChange()">
+    </div>
+    <div class="col-3">
+
+    @if (studentTotalMarks >= 80) {
+        <strong class="text-success">Student has an A+ Grade</strong>
+    }
+    @else if (studentTotalMarks >= 60 && studentTotalMarks < 80) {
+        <strong class="text-primary">Student has a A Grade</strong>
+    }
+    @else if (studentTotalMarks >= 50 && studentTotalMarks < 60) {
+        <strong class="text-info">Student has a B Grade</strong>
+    }
+    @else if (studentTotalMarks >= 40 && studentTotalMarks < 50) {
+        <strong class="text-secondary">Student has a C Grade</strong>
+    }
+    @else if (studentTotalMarks >= 33 && studentTotalMarks < 40) {
+        <strong class="text-warning">Student has an D Grade</strong>
+    }
+    @else {
+        @if(studentTotalMarks==0){
+            <span>Enter Marks</span>
+        }@else{
+            <strong class="text-danger">Student Fails</strong>
+        }
+    }
+
+</div>
+
+</div>
+<hr>
+<div class="row">
+
+  <div class="col-3">
+      <ul>
+        @for (item of offerList; track $index) {
+        <li>{{item}}</li>
+        }
+    </ul>
+  </div>
+  <div class="col-8">
+    @for (item of productCategoryList; track $index) {
+        <button class="btn btn-primary mx-2">{{item}}</button>
+    }
+  </div>
+</div>
+
+<hr>
+  <div class="row">
+    <div class="col-6">
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+                @for (employee of employeeList; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.Age}}</td>
+                        <td>{{employee.City}}</td>
+                        @if (employee.isActive==true) {
+                            <strong class="text-info">Active</strong>
+                        }@else {
+                            <strong class="text-danger">De-Active</strong>
+                        }
+                    </tr>
+                }
+        </tbody>
+    </table>
+    </div>
+  </div>

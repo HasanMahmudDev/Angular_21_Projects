@@ -1,0 +1,47 @@
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <span>{{courseName}}</span>
+            </td>
+            <td>
+                <strong>{{courseName}}</strong>
+            </td>
+            <td>
+                <strong>{{cityName}}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" [value]="courseName">
+            </td>
+            <td>
+                <p [class]="className">This is para</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="showWelcomeMessage()">Show Message</button>
+            </td>
+            <td>
+                <select (change)="onStateChanged()">
+                    <option>Dhaka</option>
+                    <option>Sirajganj</option>
+                    <option>Ullapara</option>
+                    <option>Jamtail</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text"  [(ngModel)]="courseName">
+            </td>
+            <td>
+                <button (click)="changesCourseName('Java')">Change Java</button>
+            </td>
+            <td>
+                <button (click)="changesCourseName('Dot Net')">Change Dot Net</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
